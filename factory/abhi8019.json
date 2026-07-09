@@ -1,0 +1,15 @@
+{
+	"name": "abhi8019",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "079f9289-f768-4b36-b120-ce087dfe31fc",
+		"tenantId": "01d07a00-8482-44f7-bb88-4d4820039a90"
+	}
+}
