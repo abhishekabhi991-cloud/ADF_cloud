@@ -58,7 +58,16 @@
 									"referenceName": "Child_pipeline_incremental",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true
+								"waitOnCompletion": true,
+								"parameters": {
+									"TableSchema": {
+										"value": "@item.Tableschema",
+										"type": "Expression"
+									},
+									"TableName": "@item().TableName",
+									"WatermarkColumn": "@item().WatermarkColumn",
+									"LastLoadValue": "@item().LastLoadValue"
+								}
 							}
 						}
 					]
