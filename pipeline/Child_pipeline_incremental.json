@@ -100,7 +100,13 @@
 							"inputs": [
 								{
 									"referenceName": "SqlServerTable1",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"schemaname": {
+											"value": "@pipeline().parameters.TableSchema",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
