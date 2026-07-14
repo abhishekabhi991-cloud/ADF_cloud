@@ -5,6 +5,14 @@
 			"referenceName": "SqlServer1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Schemaname": {
+				"type": "string"
+			},
+			"tablename": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [
@@ -27,8 +35,11 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "dbo",
-			"table": "ADF_Watermark_Table"
+			"schema": "@dataset().schemaname",
+			"table": {
+				"value": "@dataset().tablename",
+				"type": "Expression"
+			}
 		}
 	}
 }
