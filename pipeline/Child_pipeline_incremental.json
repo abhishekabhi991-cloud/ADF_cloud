@@ -25,10 +25,6 @@
 						"referenceName": "SqlServerTable1",
 						"type": "DatasetReference",
 						"parameters": {
-							"Schemaname": {
-								"value": "@pipeline().parameters.TableSchema",
-								"type": "Expression"
-							},
 							"tablename": {
 								"value": "@pipeline().parameters.TableName",
 								"type": "Expression"
@@ -39,7 +35,7 @@
 				}
 			},
 			{
-				"name": "If Condition1",
+				"name": "If_NEW_RECORD_EXIT",
 				"type": "IfCondition",
 				"dependsOn": [
 					{
@@ -75,22 +71,41 @@
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
-								"enableStaging": false
+								"sink": {
+									"type": "ParquetSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "ParquetWriteSettings"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
 							},
 							"inputs": [
 								{
 									"referenceName": "SqlServerTable1",
 									"type": "DatasetReference",
 									"parameters": {
-										"Schemaname": {
-											"value": "@pipeline().parameters.TableSchema",
-											"type": "Expression"
-										},
 										"tablename": {
 											"value": "@pipeline().parameters.TableName",
 											"type": "Expression"
 										}
 									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "ADLS_SQL_PRGT",
+									"type": "DatasetReference"
 								}
 							]
 						},
