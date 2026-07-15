@@ -25,10 +25,13 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "SqlServerTable1",
+						"referenceName": "lkup_max_value",
 						"type": "DatasetReference",
 						"parameters": {
-							"schemaname": "@pipeline().parameters.TableSchema",
+							"schemaname": {
+								"value": "@pipeline().parameters.TableSchema",
+								"type": "Expression"
+							},
 							"tablename": {
 								"value": "@pipeline().parameters.TableName",
 								"type": "Expression"
@@ -67,7 +70,6 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": [],
 							"typeProperties": {
 								"source": {
 									"type": "SqlServerSource",
@@ -99,7 +101,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SqlServerTable1",
+									"referenceName": "lkup_max_value",
 									"type": "DatasetReference",
 									"parameters": {
 										"schemaname": {
@@ -121,7 +123,7 @@
 							]
 						},
 						{
-							"name": "Execute Pipeline1",
+							"name": "child_pipeline_storeprocedure",
 							"type": "ExecutePipeline",
 							"dependsOn": [
 								{
@@ -137,10 +139,24 @@
 							"userProperties": [],
 							"typeProperties": {
 								"pipeline": {
-									"referenceName": "pipeline1",
+									"referenceName": "child_pipeline_storeprocedure",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true
+								"waitOnCompletion": true,
+								"parameters": {
+									"schemaname": {
+										"value": "@pipeline().parameters.TableSchema",
+										"type": "Expression"
+									},
+									"Tablename": {
+										"value": "@pipeline().parameters.TableName",
+										"type": "Expression"
+									},
+									"watermarkcolum": {
+										"value": "@pipeline().parameters.WatermarkColumn",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]

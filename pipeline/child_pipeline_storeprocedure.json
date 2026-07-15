@@ -1,0 +1,17 @@
+{
+	"name": "child_pipeline_storeprocedure",
+	"properties": {
+		"parameters": {
+			"schemaname": {
+				"type": "string"
+			},
+			"Tablename": {
+				"type": "string"
+			},
+			"watermarkcolum": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
