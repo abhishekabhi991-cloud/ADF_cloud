@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "abhi8019"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adl28019.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://sqlpasskey.vault.azure.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "MSSQL"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "ABHISHEK"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "sql"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "ABHISHEK"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "Abhishek"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "sql"
+		}
+	}
+}
