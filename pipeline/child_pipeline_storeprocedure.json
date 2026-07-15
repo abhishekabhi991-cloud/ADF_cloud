@@ -1,6 +1,28 @@
 {
 	"name": "child_pipeline_storeprocedure",
 	"properties": {
+		"activities": [
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[UpdateWatermark]"
+				},
+				"linkedServiceName": {
+					"referenceName": "SqlServer1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
 		"parameters": {
 			"schemaname": {
 				"type": "string"
