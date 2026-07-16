@@ -5,6 +5,8 @@
 			{
 				"name": "Stored procedure1",
 				"type": "SqlServerStoredProcedure",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -15,7 +17,30 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[dbo].[UpdateWatermark]"
+					"storedProcedureName": "[dbo].[UpdateWatermark]",
+					"storedProcedureParameters": {
+						"Tablename": {
+							"value": {
+								"value": "@pipeline().parameters.Tablename",
+								"type": "Expression"
+							},
+							"type": "Single"
+						},
+						"Tableschema": {
+							"value": {
+								"value": "@pipeline().parameters.schemaname",
+								"type": "Expression"
+							},
+							"type": "Single"
+						},
+						"Watermarkcolumn": {
+							"value": {
+								"value": "@pipeline().parameters.watermarkcolum",
+								"type": "Expression"
+							},
+							"type": "Single"
+						}
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "SqlServer1",
