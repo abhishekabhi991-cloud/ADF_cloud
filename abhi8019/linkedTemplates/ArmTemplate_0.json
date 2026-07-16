@@ -232,8 +232,6 @@
 					{
 						"name": "Stored procedure1",
 						"type": "SqlServerStoredProcedure",
-						"state": "Inactive",
-						"onInactiveMarkAs": "Succeeded",
 						"dependsOn": [],
 						"policy": {
 							"timeout": "0.12:00:00",
@@ -251,21 +249,21 @@
 										"value": "@pipeline().parameters.Tablename",
 										"type": "Expression"
 									},
-									"type": "Single"
+									"type": "String"
 								},
 								"Tableschema": {
 									"value": {
 										"value": "@pipeline().parameters.schemaname",
 										"type": "Expression"
 									},
-									"type": "Single"
+									"type": "String"
 								},
 								"Watermarkcolumn": {
 									"value": {
 										"value": "@pipeline().parameters.watermarkcolumn",
 										"type": "Expression"
 									},
-									"type": "Single"
+									"type": "String"
 								}
 							}
 						},
