@@ -33,7 +33,7 @@
 						},
 						"Watermarkcolumn": {
 							"value": {
-								"value": "@pipeline().parameters.watermarkcolum",
+								"value": "@pipeline().parameters.watermarkcolumn",
 								"type": "Expression"
 							},
 							"type": "Single"
