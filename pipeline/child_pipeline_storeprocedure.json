@@ -5,8 +5,6 @@
 			{
 				"name": "Stored procedure1",
 				"type": "SqlServerStoredProcedure",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -55,7 +53,7 @@
 			"Tablename": {
 				"type": "string"
 			},
-			"watermarkcolum": {
+			"watermarkcolumn": {
 				"type": "string"
 			}
 		},
